@@ -15,7 +15,7 @@ PROXY_HOST="YOUR_PROXY_HOST"
 PROXY_PORT="YOUR_PROXY_PORT"
 ```
 
-3. Run the follow commands to get start:
+3. Run the following commands to get start:
 
 ```
 vagrant up --provision
@@ -23,7 +23,7 @@ vagrant up --provision
 
 ## Shutdown the vm
 
-Run the follow command to shutdown gitlab runner virtual machine
+Run the following command to shutdown gitlab runner virtual machine
 
 ```
 vagrant halt
@@ -33,7 +33,7 @@ You can always boot the vm using `vagrant up --provision`.
 
 ## Destroy
 
-Run the follow commands to destroy gitlab runner virtual machine
+Run the following commands to destroy gitlab runner virtual machine
 
 ```
 vagrant destroy
@@ -43,13 +43,25 @@ And then remove the dead runner from gitlab.
 
 ## Hostname
 
-Virtual machine's hostname is set automatically based on host's name, it's set in `Vagrantfile` by the follow line:
+Virtual machine's hostname is set automatically based on host's name, it's set in `Vagrantfile` by the following line:
 
 ```
 config.vm.hostname = "#{`hostname`[0..-2]}-runner"
 ```
 
 For example, if your host machine's name is `Peter-Desktop`, the client virtual machine's name will be `Peter-Desktop-runner`. And the gitlab runner's name will be the same as the hostname of vm, This is very useful if multiple vagrant runners are running for same gitlab instance.
+
+## Slow speed
+
+You can download the vm box file directly with your favorite Download Manager from the following link:
+
+[https://vagrantcloud.com/xdtianyu/boxes/gitlab-runner/versions/1.0.0/providers/virtualbox.box](https://vagrantcloud.com/xdtianyu/boxes/gitlab-runner/versions/1.0.0/providers/virtualbox.box)
+
+And then add box file to your vagrant box list by the following command:
+
+```
+vagrant box add xdtianyu/gitlab-runner gitlab-runner.box
+```
 
 ## Project
 
