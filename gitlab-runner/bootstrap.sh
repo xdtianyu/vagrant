@@ -1,9 +1,6 @@
 #!/bin/bash
 
-URL="YOUR_GITLAB_URL"
-TOKEN="YOUR_TOKEN"
-PROXY_HOST="YOUR_PROXY_HOST"
-PROXY_PORT="YOUR_PROXY_PORT"
+source /tmp/.env
 
 echo "systemProp.http.proxyHost=$PROXY_HOST
 systemProp.http.proxyPort=$PROXY_PORT
@@ -21,7 +18,7 @@ sudo gitlab-runner register \
   --registration-token "$TOKEN" \
   --executor "docker" \
   --docker-image openjdk:8-jdk \
-  --description "runner" \
+  --description "$(hostname)" \
   --tag-list "docker,runner" \
   --run-untagged="true" \
   --locked="false" \

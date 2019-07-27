@@ -4,9 +4,9 @@ This vagrant box has included Android sdk and Android ndk inside, gitlab runner 
 
 ## Usage
 
-1. Install Vagrant and VirtualBox
+1. Install Vagrant and VirtualBox, for Windows users, please upgrade PowerShell to 5.1.
 
-2. Checkout this repo and modify `bootstrap.sh` environment variables:
+2. Checkout this repo and copy `.env.example` file to `.env`, then modify environment variables:
 
 ```
 URL="YOUR_GITLAB_URL"

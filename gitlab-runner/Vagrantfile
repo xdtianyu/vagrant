@@ -14,6 +14,8 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "xdtianyu/gitlab-runner"
 
+  config.vm.hostname = "#{`hostname`[0..-2]}-runner"
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -67,6 +69,11 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     echo "Boot Completed."
   SHELL
+
+  config.vm.provision :file do |file|
+    file.source = ".env"
+    file.destination = "/tmp/.env"
+  end
 
   config.vm.provision "bootstrap",
     type: "shell",
