@@ -15,6 +15,8 @@ PROXY_HOST="YOUR_PROXY_HOST"
 PROXY_PORT="YOUR_PROXY_PORT"
 ```
 
+Set `PROXY_HOST` and `PROXY_PORT` to empty if you are not using proxy.
+
 3. Run the following commands to get start:
 
 ```
@@ -62,6 +64,21 @@ And then add box file to your vagrant box list by the following command:
 ```
 vagrant box add xdtianyu/gitlab-runner gitlab-runner.box
 ```
+
+## Login to vm runner
+
+Use the following command to login vm runner:
+
+```
+vagrant ssh
+```
+
+The default user is `vagrant` and the password for `vagrant` and `root` user is `vagrant`. You can run command with `sudo` without password.
+
+## .gitlab-ci.yml example
+
+Check out project [xdtianyu/CallerInfo](https://github.com/xdtianyu/CallerInfo) 's `.gitlab-ci.yml` for more details. You can also config ndk build, unit test, android ui test with this vm runner.
+
 
 ## Project
 
