@@ -1,6 +1,6 @@
 # Vagrant Gitlab Runner for Android projects
 
-This vagrant box has included Android sdk and Android ndk inside, gitlab runner will be registered after the first run of `bootstrap.sh` script.
+This vagrant box has included Android sdk and Android ndk inside, gitlab runner will **be registered after the first run** of `bootstrap.sh` script.
 
 ## Usage
 
@@ -21,6 +21,16 @@ PROXY_PORT="YOUR_PROXY_PORT"
 vagrant up --provision
 ```
 
+## Shutdown the vm
+
+Run the follow command to shutdown gitlab runner virtual machine
+
+```
+vagrant halt
+```
+
+You can always boot the vm using `vagrant up --provision`. 
+
 ## Destroy
 
 Run the follow commands to destroy gitlab runner virtual machine
@@ -31,3 +41,20 @@ vagrant destroy
 
 And then remove the dead runner from gitlab.
 
+## Hostname
+
+Virtual machine's hostname is set automatically based on host's name, it's set in `Vagrantfile` by the follow line:
+
+```
+config.vm.hostname = "#{`hostname`[0..-2]}-runner"
+```
+
+For example, if your host machine's name is `Peter-Desktop`, the client virtual machine's name will be `Peter-Desktop-runner`. And the gitlab runner's name will be the same as the hostname of vm, This is very useful if multiple vagrant runners are running for same gitlab instance.
+
+## Project
+
+[https://github.com/xdtianyu/vagrant](https://github.com/xdtianyu/vagrant)
+
+## License
+
+MIT
