@@ -33,5 +33,7 @@ sudo gitlab-runner register \
   --docker-volumes "/opt/sdk:/opt/sdk:rw" \
   --docker-volumes "/opt/cache/gradle:/opt/cache/gradle:rw" \
   --docker-volumes "/dev/kvm:/dev/kvm:rw" \
+  --docker-network-mode "host" \
+  --docker-extra-hosts "" \
   --access-level="not_protected"
 
