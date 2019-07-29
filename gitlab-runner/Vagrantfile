@@ -13,6 +13,8 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "xdtianyu/gitlab-runner"
+  # config.vm.box_url = ["https://YOUR_LAN_HOSTING/gitlab-runner.box"]
+
   config.vm.network :forwarded_port, guest: 22, host: 2322, id: "ssh"
 
   config.vm.provider 'virtualbox' do |vb|
