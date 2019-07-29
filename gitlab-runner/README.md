@@ -65,6 +65,18 @@ And then add box file to your vagrant box list by the following command:
 vagrant box add xdtianyu/gitlab-runner gitlab-runner.box
 ```
 
+You can also host the box file at your LAN server, and then edit `Vagrantfile` and modify the following line: 
+
+```
+# config.vm.box_url = ["https://YOUR_LAN_HOSTING/gitlab-runner.box"]
+```
+For example, if you host this box file at `http://10.0.0.1:8080/gitlab-runner.box`, then update the config to:
+
+```
+config.vm.box_url = ["http://10.0.0.1:8080/gitlab-runner.box"]
+```
+Then distribute this repo with `.env` to your colleagues for quick setup, they can start the runner vm by running `vagrant up --provision` command.
+
 ## Login to vm runner
 
 Use the following command to login vm runner:
