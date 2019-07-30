@@ -2,10 +2,16 @@
 
 source /tmp/.env
 
-echo "systemProp.http.proxyHost=$PROXY_HOST
+if [ ! -z "$PROXY_HOST" ]; then
+    echo "systemProp.http.proxyHost=$PROXY_HOST
 systemProp.http.proxyPort=$PROXY_PORT
+systemProp.http.nonProxyHosts=$NO_PROXY_HOST
 systemProp.https.proxyHost=$PROXY_HOST
-systemProp.https.proxyPort=$PROXY_PORT" > /opt/cache/gradle/gradle.properties
+systemProp.https.proxyPort=$PROXY_PORT
+systemProp.https.nonProxyHosts=$NO_PROXY_HOST" > /opt/cache/gradle/gradle.properties
+else
+    echo "" > /opt/cache/gradle/gradle.properties
+fi
 
 if [ ! -z "$(cat /etc/gitlab-runner/config.toml |grep url\ =\ \"$URL\")" ]; then
     echo "Runner is already registered."
