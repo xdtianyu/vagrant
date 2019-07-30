@@ -87,6 +87,20 @@ vagrant ssh
 
 The default user is `vagrant` and the password for `vagrant` and `root` user is `vagrant`. You can run command with `sudo` without password.
 
+## Start automatically after Windows restart
+
+You can run `bash add-windows-startup.sh` in `git-bash` to add a batch file `gitlab-runner.bat` in your startup directory.
+
+Or you can manually create `gitlab-runner.bat` file with the following content and save it in `%userprofile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`. Please note that modify `D:/code/vagrant/gitlab-runner` to your own path.
+
+```batch
+@echo off
+echo Starting GitLab Runner ...
+cd /D D:/code/vagrant/gitlab-runner
+vagrant up --provision
+::pause
+```
+
 ## .gitlab-ci.yml example
 
 Check out project [xdtianyu/CallerInfo](https://github.com/xdtianyu/CallerInfo) 's `.gitlab-ci.yml` for more details. You can also config ndk build, unit test, android ui test with this vm runner.
