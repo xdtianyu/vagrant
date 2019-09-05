@@ -1,5 +1,7 @@
 # Vagrant Gitlab Runner for Android projects
 
+[中文：(Android 工程的 Vagrant Gitlab Runner)](https://busy.im/post/vagrant-gitlab-runner-for-android/)
+
 This vagrant box has included Android sdk and Android ndk inside, gitlab runner will **be registered after the first run** of `bootstrap.sh` script.
 
 ## Usage
