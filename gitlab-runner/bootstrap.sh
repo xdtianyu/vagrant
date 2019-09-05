@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sed -i 's/\r//g' .env
 source /tmp/.env
 
 if [ ! -z "$PROXY_HOST" ]; then
